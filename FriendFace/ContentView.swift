@@ -7,16 +7,20 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
 
-    @State private var users = [User]()
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: CDUser.entity(), sortDescriptors: []) var cdUsers: FetchedResults<CDUser>
+
+    @State private var users = [CDUser]()
 
     var body: some View {
         NavigationView {
-            List(users) { user in
+            List(cdUsers, id: \.self) { user in
                 NavigationLink(destination: UserDetailView(allUsers: self.users, user: user)){
-                    Text(user.name)
+                    Text(user.wrappedName)
                 }
             }
             .navigationBarTitle("Friend Face")
@@ -25,43 +29,13 @@ struct ContentView: View {
     }
 
     func loadData() {
-
-        //To only returve data on load
-        guard users.isEmpty else {
-            print("Already retrieved users.")
-            return
-        }
-
-        guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
-            print("Invalid URL")
-            return
-        }
-
-        let urlRequest = URLRequest(url: url)
-        print("Getting data...")
-
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-            }
-
-            guard let data = data else {
-                return
-            }
-
-            print("Data Retrieved: \(data.count)")
-            self.parseData(data: data)
-
-        }.resume()
-    }
-
-    func parseData(data: Data) {
-        if let decodedResponse = try? JSONDecoder().decode([User].self, from: data) {
-            self.users = decodedResponse
-            print("Users Parsed: \(self.users.count)")
+        if self.cdUsers.isEmpty {
+        Users.loadDataToCD(moc: self.moc)
+            self.users = cdUsers.sorted(by: { (user1, user2) -> Bool in
+                user1.wrappedName > user2.wrappedName
+            })
         } else {
-            print("Error: Failed to parse data")
+            print("Already have the data from before")
         }
     }
 }
