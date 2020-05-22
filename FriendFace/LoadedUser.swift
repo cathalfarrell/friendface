@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  LoadedUser.swift
 //  FriendFace
 //
 //  Created by Cathal Farrell on 21/05/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Codable, Identifiable {
+struct LoadedUser: Codable, Identifiable {
     var id: String
     var isActive: Bool
     var name: String
@@ -19,7 +19,7 @@ struct User: Codable, Identifiable {
     var about: String
     var registered: String
     var tags: [String]
-    var friends: [Friend]
+    var friends: [LoadedFriend]
 
     var tagsForDisplay: String {
         return tags.joined(separator: ", ")

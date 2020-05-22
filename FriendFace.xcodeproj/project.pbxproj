@@ -14,8 +14,8 @@
 		8C0F49142476871C00B8007E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C0F49132476871C00B8007E /* Assets.xcassets */; };
 		8C0F49172476871C00B8007E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C0F49162476871C00B8007E /* Preview Assets.xcassets */; };
 		8C0F491A2476871C00B8007E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0F49182476871C00B8007E /* LaunchScreen.storyboard */; };
-		8C0F4922247687C600B8007E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F4921247687C600B8007E /* User.swift */; };
-		8C0F492424768A4A00B8007E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F492324768A4A00B8007E /* Friend.swift */; };
+		8C0F4922247687C600B8007E /* LoadedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F4921247687C600B8007E /* LoadedUser.swift */; };
+		8C0F492424768A4A00B8007E /* LoadedFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F492324768A4A00B8007E /* LoadedFriend.swift */; };
 		8C66F9E2247828340075A113 /* CDFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66F9E0247828340075A113 /* CDFriend+CoreDataClass.swift */; };
 		8C66F9E3247828340075A113 /* CDFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66F9E1247828340075A113 /* CDFriend+CoreDataProperties.swift */; };
 		8C66F9E524782FD80075A113 /* LoadedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66F9E424782FD80075A113 /* LoadedUsers.swift */; };
@@ -34,8 +34,8 @@
 		8C0F49162476871C00B8007E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C0F49192476871C00B8007E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C0F491B2476871C00B8007E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C0F4921247687C600B8007E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8C0F492324768A4A00B8007E /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		8C0F4921247687C600B8007E /* LoadedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedUser.swift; sourceTree = "<group>"; };
+		8C0F492324768A4A00B8007E /* LoadedFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedFriend.swift; sourceTree = "<group>"; };
 		8C66F9E0247828340075A113 /* CDFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDFriend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8C66F9E1247828340075A113 /* CDFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDFriend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8C66F9E424782FD80075A113 /* LoadedUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedUsers.swift; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 				8CAC1B832478103C005E12C6 /* CDUser+CoreDataClass.swift */,
 				8CAC1B842478103C005E12C6 /* CDUser+CoreDataProperties.swift */,
 				8C66F9E424782FD80075A113 /* LoadedUsers.swift */,
-				8C0F4921247687C600B8007E /* User.swift */,
-				8C0F492324768A4A00B8007E /* Friend.swift */,
+				8C0F4921247687C600B8007E /* LoadedUser.swift */,
+				8C0F492324768A4A00B8007E /* LoadedFriend.swift */,
 				8C0F490A2476871B00B8007E /* AppDelegate.swift */,
 				8C0F490C2476871B00B8007E /* SceneDelegate.swift */,
 				8C0F49112476871B00B8007E /* ContentView.swift */,
@@ -179,9 +179,9 @@
 				8C0F49122476871B00B8007E /* ContentView.swift in Sources */,
 				8C66F9E2247828340075A113 /* CDFriend+CoreDataClass.swift in Sources */,
 				8C66F9E3247828340075A113 /* CDFriend+CoreDataProperties.swift in Sources */,
-				8C0F492424768A4A00B8007E /* Friend.swift in Sources */,
+				8C0F492424768A4A00B8007E /* LoadedFriend.swift in Sources */,
 				8CFA09DD24769788002DAB5F /* UserDetailView.swift in Sources */,
-				8C0F4922247687C600B8007E /* User.swift in Sources */,
+				8C0F4922247687C600B8007E /* LoadedUser.swift in Sources */,
 				8C0F490D2476871B00B8007E /* SceneDelegate.swift in Sources */,
 				8CAC1B852478103C005E12C6 /* CDUser+CoreDataClass.swift in Sources */,
 				8C66F9E524782FD80075A113 /* LoadedUsers.swift in Sources */,

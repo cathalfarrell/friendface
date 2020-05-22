@@ -1,5 +1,5 @@
 //
-//  Friend.swift
+//  LoadedFriend.swift
 //  FriendFace
 //
 //  Created by Cathal Farrell on 21/05/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Friend: Codable, Identifiable {
+struct LoadedFriend: Codable, Identifiable {
     var id: String
     var name: String
 }

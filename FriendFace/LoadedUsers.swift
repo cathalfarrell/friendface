@@ -41,6 +41,7 @@ class Users {
                         cdUser.addToFriends(cdFriend)
                     }
 
+                    print("User Loaded: \(user)\n\n")
                     tempUsers.append(cdUser)
                 }
 
@@ -55,7 +56,7 @@ class Users {
 
     }
 
-    static func loadDataFromJSON(completion: @escaping ([User]) -> ()) {
+    static func loadDataFromJSON(completion: @escaping ([LoadedUser]) -> ()) {
         
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
@@ -76,7 +77,7 @@ class Users {
             }
 
             print("Data Retrieved: \(data.count)")
-            if let decodedUsers = try? JSONDecoder().decode([User].self, from: data) {
+            if let decodedUsers = try? JSONDecoder().decode([LoadedUser].self, from: data) {
 
                 print("Users Parsed: \(decodedUsers.count)")
 
