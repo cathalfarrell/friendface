@@ -15,10 +15,11 @@
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="String"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="user" inverseEntity="Friend"/>
     </entity>
     <elements>
         <element name="Friend" positionX="-63" positionY="54" width="128" height="88"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="208"/>
     </elements>
 </model>

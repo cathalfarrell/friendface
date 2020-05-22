@@ -31,6 +31,7 @@ class Users {
                     cdUser.about = user.about
                     cdUser.registered = user.registered
                     cdUser.email = user.email
+                    cdUser.tags = user.tags as NSObject
 
                     //Create the friends and add them to the user
                     for friend in user.friends {

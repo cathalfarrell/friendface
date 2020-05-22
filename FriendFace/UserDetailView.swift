@@ -24,7 +24,7 @@ struct UserDetailView: View {
                 Text("Address: \(user.wrappedAddress)")
                 Text("About: \(user.wrappedAbout)")
                 Text("Registered: \(user.wrappedAddress)")
-                //Text("Tags: \(user.tagsForDisplay)")
+                Text("Tags: \(user.tagsForDisplay)")
             }
             Section(header: Text("Friends")){
 

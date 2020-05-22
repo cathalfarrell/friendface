@@ -26,6 +26,7 @@ extension User {
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String?
     @NSManaged public var registered: String?
+    @NSManaged public var tags: NSObject?
     @NSManaged public var friends: NSSet?
 
     public var wrappedId: String {
@@ -69,6 +70,18 @@ extension User {
         return set.sorted {$0.wrappedName < $1.wrappedName}
     }
 
+    public var tagsArray: [String] {
+        if let tags = tags as? [String] {
+            return tags
+        } else {
+            return []
+        }
+    }
+
+    public var tagsForDisplay: String {
+        return tagsArray.joined(separator: ", ")
+    }
+
     static var testUser: User {
         let cdUser = User()
         cdUser.id = "3e6fa1d2-527c-41e9-9da0-2d89eb0b8d6a"
@@ -83,13 +96,13 @@ extension User {
             " exercitation ipsum eiusmod consequat tempor mollit aliqua. Sunt voluptate qui labore sit sunt" +
             " cillum aliquip. Qui nulla Lorem in esse adipisicing pariatur esse aute.\r\n"
         cdUser.registered = "2015-08-15T11:33:32-01:00"
-//        tags: ["aliquip",
-//        "esse",
-//        "aliquip",
-//        "adipisicing",
-//        "ipsum",
-//        "qui",
-//        "mollit"],
+        cdUser.tags = ["aliquip",
+        "esse",
+        "aliquip",
+        "adipisicing",
+        "ipsum",
+        "qui",
+        "mollit"] as NSObject
         cdUser.friends = [Friend.testFriend]
         return cdUser
     }

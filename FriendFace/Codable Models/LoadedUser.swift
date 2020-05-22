@@ -20,8 +20,4 @@ struct LoadedUser: Codable, Identifiable {
     var registered: String
     var tags: [String]
     var friends: [LoadedFriend]
-
-    var tagsForDisplay: String {
-        return tags.joined(separator: ", ")
-    }
 }
