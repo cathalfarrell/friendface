@@ -12,15 +12,30 @@ import CoreData
 struct ContentView: View {
 
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: CDUser.entity(), sortDescriptors: []) var cdUsers: FetchedResults<CDUser>
-
-    @State private var users = [CDUser]()
+    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var users: FetchedResults<User>
 
     var body: some View {
         NavigationView {
-            List(cdUsers, id: \.self) { user in
-                NavigationLink(destination: UserDetailView(allUsers: self.users, user: user)){
-                    Text(user.wrappedName)
+            List(users, id: \.self) { user in
+                NavigationLink(destination: UserDetailView(allUsers: self.getUsers(), user: user)){
+                    VStack {
+                        HStack {
+                            Text(user.wrappedName)
+                                .font(.title)
+                            Spacer()
+                            Text(user.wrappedCompany)
+                        }
+                        HStack {
+                            if user.wrappedIsActive {
+                                Text("🟢")
+                            } else {
+                                Text("🔴")
+                            }
+                            Text(user.wrappedEmail)
+                            Spacer()
+                        }
+                    }
+
                 }
             }
             .navigationBarTitle("Friend Face")
@@ -29,13 +44,16 @@ struct ContentView: View {
     }
 
     func loadData() {
-        if self.cdUsers.isEmpty {
-        Users.loadDataToCD(moc: self.moc)
-            self.users = cdUsers.sorted(by: { (user1, user2) -> Bool in
-                user1.wrappedName > user2.wrappedName
-            })
+        if self.users.isEmpty {
+            Users.loadDataToCD(moc: self.moc)
         } else {
             print("Already have the data from before")
+        }
+    }
+
+    func getUsers() -> [User] {
+        return users.sorted { (user1, user2) -> Bool in
+            user2.wrappedName > user1.wrappedName
         }
     }
 }

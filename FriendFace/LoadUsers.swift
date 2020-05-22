@@ -17,11 +17,11 @@ class Users {
         loadDataFromJSON { (users) in
             DispatchQueue.main.async {
 
-                var tempUsers = [CDUser]()
+                var tempUsers = [User]()
 
                 //Convert to Core Data Entities
                 for user in users {
-                    let cdUser = CDUser(context: moc)
+                    let cdUser = User(context: moc)
                     cdUser.id = user.id
                     cdUser.name = user.name
                     cdUser.company = user.company
@@ -30,10 +30,11 @@ class Users {
                     cdUser.address = user.address
                     cdUser.about = user.about
                     cdUser.registered = user.registered
+                    cdUser.email = user.email
 
                     //Create the friends and add them to the user
                     for friend in user.friends {
-                        let cdFriend = CDFriend(context: moc)
+                        let cdFriend = Friend(context: moc)
                         cdFriend.id = friend.id
                         cdFriend.name = friend.name
 

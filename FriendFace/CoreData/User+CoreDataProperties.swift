@@ -1,5 +1,5 @@
 //
-//  CDUser+CoreDataProperties.swift
+//  User+CoreDataProperties.swift
 //  FriendFace
 //
 //  Created by Cathal Farrell on 22/05/2020.
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension CDUser {
+extension User {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDUser> {
-        return NSFetchRequest<CDUser>(entityName: "CDUser")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
+        return NSFetchRequest<User>(entityName: "User")
     }
 
     @NSManaged public var about: String?
@@ -64,13 +64,13 @@ extension CDUser {
         registered ?? "Unknown registered"
     }
 
-    public var friendsArray: [CDFriend] {
-        let set = friends as? Set<CDFriend> ?? []
+    public var friendsArray: [Friend] {
+        let set = friends as? Set<Friend> ?? []
         return set.sorted {$0.wrappedName < $1.wrappedName}
     }
 
-    static var testUser: CDUser {
-        let cdUser = CDUser()
+    static var testUser: User {
+        let cdUser = User()
         cdUser.id = "3e6fa1d2-527c-41e9-9da0-2d89eb0b8d6a"
         cdUser.isActive = true
         cdUser.name = "Brooks Spence"
@@ -90,20 +90,20 @@ extension CDUser {
 //        "ipsum",
 //        "qui",
 //        "mollit"],
-        cdUser.friends = [CDFriend.testFriend]
+        cdUser.friends = [Friend.testFriend]
         return cdUser
     }
 
 }
 
 // MARK: Generated accessors for friends
-extension CDUser {
+extension User {
 
     @objc(addFriendsObject:)
-    @NSManaged public func addToFriends(_ value: CDFriend)
+    @NSManaged public func addToFriends(_ value: Friend)
 
     @objc(removeFriendsObject:)
-    @NSManaged public func removeFromFriends(_ value: CDFriend)
+    @NSManaged public func removeFromFriends(_ value: Friend)
 
     @objc(addFriends:)
     @NSManaged public func addToFriends(_ values: NSSet)

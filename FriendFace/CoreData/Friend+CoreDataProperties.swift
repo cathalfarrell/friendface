@@ -1,5 +1,5 @@
 //
-//  CDFriend+CoreDataProperties.swift
+//  Friend+CoreDataProperties.swift
 //  FriendFace
 //
 //  Created by Cathal Farrell on 22/05/2020.
@@ -11,15 +11,15 @@ import Foundation
 import CoreData
 
 
-extension CDFriend {
+extension Friend {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDFriend> {
-        return NSFetchRequest<CDFriend>(entityName: "CDFriend")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Friend> {
+        return NSFetchRequest<Friend>(entityName: "Friend")
     }
 
     @NSManaged public var id: String?
     @NSManaged public var name: String?
-    @NSManaged public var user: CDUser?
+    @NSManaged public var user: User?
 
     public var wrappedId: String {
         id ?? "Unknown Id"
@@ -29,8 +29,8 @@ extension CDFriend {
         name ?? "Unknown name"
     }
 
-    static var testFriend: CDFriend {
-        let friend = CDFriend()
+    static var testFriend: Friend {
+        let friend = Friend()
         friend.id = "91b5be3d-9a19-4ac2-b2ce-89cc41884ed0"
         friend.name = "Hawkins Patel"
         return friend

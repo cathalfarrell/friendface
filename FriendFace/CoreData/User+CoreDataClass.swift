@@ -1,5 +1,5 @@
 //
-//  CDFriend+CoreDataClass.swift
+//  User+CoreDataClass.swift
 //  FriendFace
 //
 //  Created by Cathal Farrell on 22/05/2020.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(CDFriend)
-public class CDFriend: NSManagedObject {
+@objc(User)
+public class User: NSManagedObject {
 
 }

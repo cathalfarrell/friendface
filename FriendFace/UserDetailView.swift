@@ -6,12 +6,13 @@
 //  Copyright © 2020 Cathal Farrell. All rights reserved.
 //
 
+import CoreData
 import SwiftUI
 
 struct UserDetailView: View {
 
-    var allUsers: [CDUser]
-    var user: CDUser
+    var allUsers: [User]
+    var user: User
 
     var body: some View {
         Form {
@@ -37,14 +38,20 @@ struct UserDetailView: View {
             }
         }
         .navigationBarTitle("User Details")
+        .onAppear(perform: printLog)
+
     }
 
-    func getUsers(from friends: [CDFriend]) -> [CDUser] {
-        var usersFound = [CDUser]()
+    func printLog() {
+        print(user)
+    }
+
+    func getUsers(from friends: [Friend]) -> [User] {
+        var usersFound = [User]()
 
         for friend in friends {
             if let match = allUsers.first(where: {
-                $0.id == friend.id
+                $0.wrappedId == friend.wrappedId
             }) {
                 usersFound.append(match)
             }
@@ -57,11 +64,11 @@ struct UserDetailView: View {
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
 
-        let allUsers = [CDUser]()
-        let cdUser = CDUser.testUser
+        let allUsers = [User]()
+        let user = User.testUser
 
         return NavigationView {
-            UserDetailView(allUsers: allUsers, user: cdUser)
+            UserDetailView(allUsers: allUsers, user: user)
         }
     }
 }
